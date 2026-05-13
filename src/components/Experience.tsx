@@ -7,7 +7,7 @@ const experiences = [
   {
     title: 'AI/ML Intern',
     company: 'Plasmid PVT LTD',
-    image: '',
+    image: 'plasmid.jpg',
     period: 'Sept 2024 - Nov 2024',
     location: 'Remote',
     description:
