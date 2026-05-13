@@ -1,0 +1,1 @@
+{`r`n  "rewrites": [`r`n    {`r`n      "source": "/(.*)",`r`n      "destination": "/index.html"`r`n    }`r`n  ]`r`n}
