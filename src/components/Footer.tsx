@@ -3,11 +3,6 @@ import { Github, Linkedin, Mail, BookOpen, BarChart3, Database, Code2 } from 'lu
 const socialLinks = [
   { icon: Linkedin, href: 'https://linkedin.com/in/mopuru-dinesh', label: 'LinkedIn' },
   { icon: Github, href: 'https://github.com/mopurudinesh', label: 'GitHub' },
-  { icon: BookOpen, href: 'https://medium.com/@mopurudinesh', label: 'Medium' },
-  { icon: BarChart3, href: 'https://www.kaggle.com/dinuuu', label: 'Kaggle' },
-  { icon: Database, href: 'https://public.tableau.com/app/profile/mopurudinesh/vizzes', label: 'Tableau Public' },
-  { icon: BarChart3, href: 'https://my.novypro.com/mopurudinesh', label: 'Power BI' },
-  { icon: Code2, href: 'https://codeforces.com/profile/mopurudinesh', label: 'Codeforces' },
   { icon: Mail, href: 'mailto:dineshkumarmopuru@gmail.com', label: 'Email' },
 ];
 
