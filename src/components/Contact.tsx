@@ -1,45 +1,32 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { Mail, Send, MapPin, Linkedin, Github, Phone } from 'lucide-react';
-import { toast } from '@/hooks/use-toast';
-import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
+import { Mail, MapPin, Linkedin, Github, Phone } from 'lucide-react';
 
 export const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const result = await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        e.currentTarget,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
-
-      if (result.text === 'OK') {
-        toast({
-          title: "Message sent!",
-          description: "Thank you for reaching out. I'll get back to you soon.",
-        });
-        (e.target as HTMLFormElement).reset();
-      }
-    } catch (error) {
-      toast({
-        title: "Error sending message",
-        description: "Something went wrong. Please try again or email me directly.",
-        variant: "destructive",
-      });
-      console.error('EmailJS Error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const contactDetails = [
+    {
+      icon: Mail,
+      label: 'Email',
+      value: 'dineshkumarmopuru@gmail.com',
+      href: 'mailto:dineshkumarmopuru@gmail.com',
+    },
+    {
+      icon: Phone,
+      label: 'Phone',
+      value: '+91-8098876223',
+      href: 'tel:+918098876223',
+    },
+    {
+      icon: MapPin,
+      label: 'Location',
+      value: 'Chennai, India 🇮🇳',
+      href: null,
+    },
+  ];
 
   return (
     <section id="contact" className="py-24 relative" ref={ref}>
@@ -57,157 +44,85 @@ export const Contact = () => {
             Let's <span className="gradient-text">Connect</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to discuss data science opportunities? I'd love to hear from you!
+            Have an opportunity, a project in mind, or just want to chat? Feel free to reach out directly or connect through social media!
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="font-display text-xl font-semibold mb-6">Get in Touch</h3>
+        {/* Contact Info Grid */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
+          {contactDetails.map((detail, index) => {
+            const CardContent = (
+              <div className="flex flex-col items-center text-center p-8 h-full">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-all duration-300">
+                  <detail.icon className="w-7 h-7 text-primary" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-2">{detail.label}</p>
+                <p className="font-medium text-foreground group-hover:text-primary transition-colors duration-300 text-balance break-all">
+                  {detail.value}
+                </p>
+              </div>
+            );
 
-            <div className="space-y-6">
-              <a
-                href="mailto:dineshkumarmopuru@gmail.com"
-                className="flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all duration-300 group"
+            return (
+              <motion.div
+                key={detail.label}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.1 * index }}
+                className="glass-card hover:border-primary/30 transition-all duration-300 group hover:translate-y-[-4px] hover:shadow-lg"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Mail className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium group-hover:text-primary transition-colors">dineshkumarmopuru@gmail.com</p>
-                </div>
-              </a>
-
-              <a
-                href="tel:+918098876223"
-                className="flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="font-medium group-hover:text-primary transition-colors">+91-8098876223</p>
-                </div>
-              </a>
-
-              <div className="flex items-center gap-4 glass-card p-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="font-medium">Chennai, India 🇮🇳</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="mt-8">
-              <p className="text-sm text-muted-foreground mb-4">Connect on social media</p>
-              <div className="flex gap-3">
-                <a href="https://linkedin.com/in/mopuru-dinesh" target="_blank" rel="noopener noreferrer" className="social-icon">
-                  <Linkedin size={20} />
-                </a>
-                <a href="https://github.com/mopurudinesh" target="_blank" rel="noopener noreferrer" className="social-icon">
-                  <Github size={20} />
-                </a>
-                <a href="mailto:dineshkumarmopuru@gmail.com" className="social-icon">
-                  <Mail size={20} />
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <form onSubmit={handleSubmit} className="glass-card p-6 sm:p-8">
-              <div className="space-y-5">
-                <div>
-                  <label htmlFor="from_name" className="block text-sm font-medium mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="from_name"
-                    name="from_name"
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                    placeholder="Your name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="from_email" className="block text-sm font-medium mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="from_email"
-                    name="from_email"
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
-                    placeholder="Subject of your message"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors resize-none"
-                    placeholder="Tell me about your project or opportunity..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    'Sending...'
-                  ) : (
-                    <>
-                      <Send size={18} />
-                      Send Message
-                    </>
-                  )}
-                </button>
-              </div>
-            </form>
-          </motion.div>
+                {detail.href ? (
+                  <a href={detail.href} className="block h-full">
+                    {CardContent}
+                  </a>
+                ) : (
+                  <div className="h-full">
+                    {CardContent}
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
+
+        {/* Social Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center"
+        >
+          <p className="text-sm text-muted-foreground mb-6">Or connect on social media</p>
+          <div className="flex justify-center gap-4">
+            <a
+              href="https://linkedin.com/in/mopuru-dinesh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon w-12 h-12"
+              title="LinkedIn"
+            >
+              <Linkedin size={22} />
+            </a>
+            <a
+              href="https://github.com/mopurudinesh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon w-12 h-12"
+              title="GitHub"
+            >
+              <Github size={22} />
+            </a>
+            <a
+              href="mailto:dineshkumarmopuru@gmail.com"
+              className="social-icon w-12 h-12"
+              title="Email"
+            >
+              <Mail size={22} />
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 };
+
