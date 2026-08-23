@@ -19,6 +19,15 @@ const projects = [
     image: 'project-portfolio.png',
   },
   {
+    title: 'CampusStay – Smart Hostel Registration & Management System',
+    description: 'A modern, full-stack, SaaS-like web application designed for students and administrators to manage hostel registrations, room allocations, payments, complaints, feedback, and announcements. Features a custom glassmorphism dashboard, JWT authentication, and PDF receipt generation.',
+    tags: ['Django', 'Django REST Framework', 'Supabase PostgreSQL', 'JavaScript', 'Bootstrap 5', 'Chart.js'],
+    categories: ['🌐 Web Development'],
+    github: 'https://github.com/mopurudinesh/CampusStay',
+    live: 'https://campusstay-btjl.onrender.com',
+    image: 'project-campusstay.png',
+  },
+  {
     title: 'E-Commerce Sales Analytics Website',
     description: 'Built a Full stack e-commerce website and Developed product listing, cart, order management, and admin modules. Implemented sales analytics dashboard for revenue, stock, and top-selling products.',
     tags: ['Spring Boot', 'REST APIs', 'Postman', 'MySQL', 'Full Stack'],
