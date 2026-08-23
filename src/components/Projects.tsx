@@ -28,11 +28,11 @@ const projects = [
     image: 'project-campusstay.png',
   },
   {
-    title: 'E-Commerce Sales Analytics Website',
+    title: 'E-Commerce Sales Analytics',
     description: 'Built a Full stack e-commerce website and Developed product listing, cart, order management, and admin modules. Implemented sales analytics dashboard for revenue, stock, and top-selling products.',
-    tags: ['Spring Boot', 'REST APIs', 'Postman', 'MySQL', 'Full Stack'],
+    tags: ['MS Excel', 'SQL Query', 'Business Analysis', 'MySQL', 'Power BI'],
     categories: ['🌐 Web Development'],
-    github: 'https://github.com/mopurudinesh',
+    github: 'https://github.com/mopurudinesh/Customer-Shopping-Behavior-Analysis',
     image: 'ecommerce-project.jpg',
   },
   {
