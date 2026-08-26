@@ -35,7 +35,7 @@ const projects = [
   categories: ['📊 Data Analytics','🌐 Web Development'],
   github: 'https://github.com/mopurudinesh/Customer-Shopping-Behavior-Analysis',
   live: 'https://customer-shopping-behavior-analysis.onrender.com/',
-  image: 'ecommerce-project.jpg',
+  image: 'ecommerce-project.png',
   },
   {
     title: 'Enhancing Agricultural Yield through Deep Learning',
@@ -43,7 +43,7 @@ const projects = [
     tags: ['Python', 'Deep Learning', 'Google Colab', 'TensorFlow', 'Keras', 'SPSS'],
     categories: ['🧠 Machine Learning'],
     github: 'https://github.com/mopurudinesh',
-    image: 'project-plantpest.png',
+    image: 'project-plantpest.jpg',
   }
 ];
 
