@@ -7,6 +7,7 @@ const categories = [
   '🎯 All Projects',
   '🌐 Web Development',
   '🧠 Machine Learning',
+  '📊 Data Analytics'
 ];
 
 const projects = [
@@ -28,12 +29,13 @@ const projects = [
     image: 'project-campusstay.png',
   },
   {
-    title: 'E-Commerce Sales Analytics',
-    description: 'Built a Full stack e-commerce website and Developed product listing, cart, order management, and admin modules. Implemented sales analytics dashboard for revenue, stock, and top-selling products.',
-    tags: ['MS Excel', 'SQL Query', 'Business Analysis', 'MySQL', 'Power BI'],
-    categories: ['🌐 Web Development'],
-    github: 'https://github.com/mopurudinesh/Customer-Shopping-Behavior-Analysis',
-    image: 'ecommerce-project.jpg',
+  title: 'Customer Shopping Behaviour Analysis',
+  description: 'Analyzed customer shopping behavior using Python, SQL, MS Excel, and Power BI, and built an interactive Streamlit web app deployed on Render.',
+  tags: ['Python', 'SQL', 'MySQL', 'MS Excel', 'Power BI', 'Streamlit'],
+  categories: ['📊 Data Analytics','🌐 Web Development'],
+  github: 'https://github.com/mopurudinesh/Customer-Shopping-Behavior-Analysis',
+  live: 'https://customer-shopping-behavior-analysis.onrender.com/',
+  image: 'ecommerce-project.jpg',
   },
   {
     title: 'Enhancing Agricultural Yield through Deep Learning',
