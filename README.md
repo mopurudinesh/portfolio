@@ -234,9 +234,9 @@ I am always open to:
 
 ## 🔗 Connect With Me
 
-* 💼 LinkedIn: [linkedin.com/in/mopuru-dinesh](#)
-* 💻 GitHub: [github.com/yourgithub](#)
-* 🌐 Live Portfolio: [Your Portfolio URL Here](#)
+* 💼 LinkedIn: www.linkedin.com/in/mopuru-dinesh
+* 💻 GitHub: github.com/mopurudinesh
+* 🌐 Live Portfolio: mopurudinesh.vercel.app/
 
 ---
 
