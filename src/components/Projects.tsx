@@ -43,7 +43,7 @@ const projects = [
     tags: ['Python', 'Deep Learning', 'Google Colab', 'TensorFlow', 'Keras', 'SPSS'],
     categories: ['🧠 Machine Learning'],
     github: 'https://github.com/mopurudinesh',
-    image: 'project-plantpest.jpg',
+    image: 'project-plantpest.png',
   }
 ];
 
